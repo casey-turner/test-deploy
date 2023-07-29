@@ -89,9 +89,9 @@ app.get("/callback", (req, res) => {
 
             console.log(queryParams);
 
-            res.redirect(`http://localhost:3000/?${queryParams}`);
+            res.redirect(`https://test-deploy-xpzc.onrender.com/?${queryParams}`);
         } else {
-            res.redirect(`http://localhost:3000/?${querystring.stringify({ error: 'invalid_token' })}`);
+            res.redirect(`https://test-deploy-xpzc.onrender.com/?${querystring.stringify({ error: 'invalid_token' })}`);
         }
 
     }).catch((error) => {
