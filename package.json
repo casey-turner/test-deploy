@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "testing how to deploy an app",
   "main": "index.js",
+  "engines": {
+    "node": "18.16.0"
+  },
   "scripts": {
     "start:server": "npm run -w server start",
     "dev:app": "npm run -w app dev",
