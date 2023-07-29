@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import reactLogo from './assets/react.svg';
 import { getSpotifyAccessToken, getUserProfile } from './services/spotify';
@@ -12,21 +12,16 @@ function App() {
     window.location.href = 'http://localhost:3000/connect';
   };
 
-  useEffect(() => {
+  const handleGetUserProfile = async () => {
     setToken(getSpotifyAccessToken);
-
-    const fetchData = async () => {
-      try {
-        const { data } = await getUserProfile();
-        setProfile(data);
-        console.log(data);
-      } catch (e) {
-        console.error(e);
-      }
-    };
-
-    fetchData();
-  }, []);
+    try {
+      const { data } = await getUserProfile();
+      setProfile(data);
+      console.log(data);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <>
@@ -54,6 +49,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <button onClick={handleConnectClick}>Connect to Spotify</button>
+      <button onClick={handleGetUserProfile}>Get User Profile</button>
       {profile && (
         <div>
           <h2>{profile.display_name}</h2>

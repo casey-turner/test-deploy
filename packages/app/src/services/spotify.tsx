@@ -30,38 +30,38 @@ const logout = (): void => {
  * Makes a call to the refresh_token endpoint to get a new access token and updates the local storage with the new values.
  * @returns True if the access token was successfully refreshed, false otherwise.
  */
-const refreshAccessToken = async (): Promise<boolean> => {
-  try {
-    if (
-      !LOCALSTORAGE_VALUES.refreshToken ||
-      LOCALSTORAGE_VALUES.refreshToken === 'undefined'
-    ) {
-      console.log('No refresh token found');
-      logout();
-      return false;
-    }
+// const refreshAccessToken = async (): Promise<boolean> => {
+//   try {
+//     if (
+//       !LOCALSTORAGE_VALUES.refreshToken ||
+//       LOCALSTORAGE_VALUES.refreshToken === 'undefined'
+//     ) {
+//       console.log('No refresh token found');
+//       logout();
+//       return false;
+//     }
 
-    const response = await axios.get(
-      `/refresh_token?refresh_token=${LOCALSTORAGE_VALUES.refreshToken}`
-    );
-    const { access_token, expires_in } = response.data;
+//     const response = await axios.get(
+//       `/refresh_token?refresh_token=${LOCALSTORAGE_VALUES.refreshToken}`
+//     );
+//     const { access_token, expires_in } = response.data;
 
-    // Update the local storage with the new access token and expiration time
-    window.localStorage.setItem(LOCALSTORAGE_KEYS.accessToken, access_token);
-    window.localStorage.setItem(LOCALSTORAGE_KEYS.expireTime, expires_in);
-    window.localStorage.setItem(
-      LOCALSTORAGE_KEYS.timestamp,
-      Date.now().toString()
-    );
+//     // Update the local storage with the new access token and expiration time
+//     window.localStorage.setItem(LOCALSTORAGE_KEYS.accessToken, access_token);
+//     window.localStorage.setItem(LOCALSTORAGE_KEYS.expireTime, expires_in);
+//     window.localStorage.setItem(
+//       LOCALSTORAGE_KEYS.timestamp,
+//       Date.now().toString()
+//     );
 
-    // Reload the page to apply the changes
-    window.location.reload();
-    return true;
-  } catch (error) {
-    console.error(error);
-    return false;
-  }
-};
+//     // Reload the page to apply the changes
+//     window.location.reload();
+//     return true;
+//   } catch (error) {
+//     console.error(error);
+//     return false;
+//   }
+// };
 
 /**
  * Checks if the current time is greater than the expire time of the access token.
@@ -93,13 +93,13 @@ const getSpotifyAccessToken = (): string | false => {
   };
 
   const hasError = urlParams.get('error');
-  if (
-    hasError ||
-    isAccessTokenExpired() ||
-    LOCALSTORAGE_VALUES.accessToken === 'undefined'
-  ) {
-    refreshAccessToken();
-  }
+  // if (
+  //   hasError ||
+  //   isAccessTokenExpired() ||
+  //   LOCALSTORAGE_VALUES.accessToken === 'undefined'
+  // ) {
+  //   refreshAccessToken();
+  // }
 
   if (
     LOCALSTORAGE_VALUES.accessToken &&
