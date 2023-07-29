@@ -9,7 +9,7 @@ function App() {
   const [profile, setProfile] = useState<Promise | null>(null);
   const [count, setCount] = useState(0);
   const handleConnectClick = () => {
-    window.location.href = 'http://localhost:3000/connect';
+    window.location.href = 'https://test-deploy-xpzc.onrender.com/connect';
   };
 
   const handleGetUserProfile = async () => {
