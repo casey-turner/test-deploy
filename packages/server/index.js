@@ -4,7 +4,11 @@ import Express from "express"
 import path from "path"
 import querystring from 'querystring'
 import { fileURLToPath } from 'url'
-import { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REDIRECT_URI } from './config.js'
+// import { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REDIRECT_URI } from './config.js'
+
+const SPOTIFY_CLIENT_ID = '83bae47876b140229566cd0d7a0fefc5'
+const SPOTIFY_CLIENT_SECRET = '54fb5c9ad63d4e7e98cab5571812f4df'
+const SPOTIFY_REDIRECT_URI = 'http://localhost:3000/callback'
 
 const currentFileUrl = import.meta.url;
 const currentFilePath = fileURLToPath(currentFileUrl);
