@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url'
 
 const SPOTIFY_CLIENT_ID = '83bae47876b140229566cd0d7a0fefc5'
 const SPOTIFY_CLIENT_SECRET = '54fb5c9ad63d4e7e98cab5571812f4df'
-const SPOTIFY_REDIRECT_URI = 'http://localhost:3000/callback'
+const SPOTIFY_REDIRECT_URI = 'https://test-deploy-xpzc.onrender.com/callback'
 
 const currentFileUrl = import.meta.url;
 const currentFilePath = fileURLToPath(currentFileUrl);
