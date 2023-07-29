@@ -1,0 +1,17 @@
+{
+  "name": "test-server",
+  "version": "1.0.0",
+  "description": "testing how to deploy an app",
+  "main": "index.js",
+  "scripts": {
+    "start:server": "npm run -w server start",
+    "dev:app": "npm run -w app dev",
+    "build:app": "npm run -w app build"
+  },
+  "author": "Casey Turner",
+  "license": "ISC",
+  "workspaces": [
+    "packages/app",
+    "packages/server"
+  ]
+}
